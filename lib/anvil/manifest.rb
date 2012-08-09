@@ -3,6 +3,7 @@ require "anvil/helpers"
 require "json"
 require "net/http"
 require "net/https"
+require "pathname"
 require "rest_client"
 
 class Anvil::Manifest
