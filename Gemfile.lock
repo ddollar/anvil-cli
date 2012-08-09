@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    anvil-cli (0.0.2)
+      rest-client (~> 1.6.7)
+      thor (~> 0.15.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -10,5 +17,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rest-client
-  thor
+  anvil-cli!
