@@ -2,7 +2,7 @@ $:.unshift File.expand_path("../lib", __FILE__)
 require "anvil/version"
 
 Gem::Specification.new do |gem|
-  gem.name     = "anvil"
+  gem.name     = "anvil-cli"
   gem.version  = Anvil::VERSION
 
   gem.author   = "David Dollar"
