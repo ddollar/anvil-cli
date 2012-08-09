@@ -1,6 +1,7 @@
 require "anvil"
 require "anvil/builder"
 require "anvil/manifest"
+require "anvil/version"
 require "thor"
 require "uri"
 
@@ -40,6 +41,12 @@ class Anvil::CLI < Thor
     end
 
     old_stdout.puts slug_url if options[:pipeline]
+  end
+
+  desc "version", "Display Anvil version"
+
+  def version
+    puts Anvil::VERSION
   end
 
 private
