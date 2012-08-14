@@ -54,7 +54,7 @@ class Anvil::Manifest
         end
       rescue EOFError
         puts
-        raise Heroku::Builder::BuildError, "terminated unexpectedly"
+        raise Anvil::Builder::BuildError, "terminated unexpectedly"
       end
 
       code = if res["x-exit-code"].nil?
@@ -64,7 +64,7 @@ class Anvil::Manifest
         res["x-exit-code"].first.to_i
       end
 
-      raise Heroku::Builder::BuildError, "exited #{code}" unless code.zero?
+      raise Anvil::Builder::BuildError, "exited #{code}" unless code.zero?
     end
 
     slug_url
