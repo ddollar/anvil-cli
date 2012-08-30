@@ -34,6 +34,8 @@ class Anvil::Engine < Thor
     end
 
     old_stdout.puts slug_url if options[:pipeline]
+
+    slug_url
   end
 
   def self.version
