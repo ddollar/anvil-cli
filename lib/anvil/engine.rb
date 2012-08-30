@@ -3,7 +3,6 @@ require "anvil/builder"
 require "anvil/manifest"
 require "anvil/version"
 require "progress"
-require "thor"
 require "thread"
 require "uri"
 
