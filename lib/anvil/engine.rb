@@ -6,7 +6,7 @@ require "progress"
 require "thread"
 require "uri"
 
-class Anvil::Engine < Thor
+class Anvil::Engine
 
   def self.build(source, options={})
     if options[:pipeline]
