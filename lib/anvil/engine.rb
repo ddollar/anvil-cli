@@ -37,6 +37,10 @@ class Anvil::Engine
       print chunk
     end
 
+    unless is_url?(source)
+      write_anvil_metadata source, "cache", manifest.cache_url
+    end
+
     old_stdout.puts slug_url if options[:pipeline]
 
     slug_url
