@@ -121,6 +121,7 @@ private
       next(hash) if %w( . .. ).include?(File.basename(file))
       next(hash) if File.directory?(file)
       next(hash) if File.pipe?(file)
+      next(hash) if file =~ /\.anvil/
       next(hash) if file =~ /\.git/
       next(hash) if file =~ /\.swp$/
       next(hash) unless file =~ /^[A-Za-z0-9\-\_\.\/]*$/
