@@ -30,7 +30,7 @@ class Anvil::Builder
     req.initialize_http_header "User-Agent" => Anvil.agent
 
     Anvil.headers.each do |name, val|
-      req.initialize_http_header name, val
+      req.initialize_http_header name => val
     end
 
     req.set_form_data({
