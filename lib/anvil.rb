@@ -10,4 +10,8 @@ module Anvil
     @@agent = self.agent + " " + str
   end
 
+  def self.headers
+    @headers ||= {}
+  end
+
 end
