@@ -10,7 +10,7 @@ class Anvil::Builder
 
   class BuildError < StandardError; end
 
-  attr_reader :source
+  attr_reader :source, :cache_url
 
   def initialize(source)
     @source = source
@@ -45,6 +45,7 @@ class Anvil::Builder
 
     http.request(req) do |res|
       slug_url = res["x-slug-url"]
+      @cache_url = res["x-cache-url"]
 
       begin
         res.read_body do |chunk|
