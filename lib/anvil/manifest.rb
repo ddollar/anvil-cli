@@ -49,7 +49,8 @@ class Anvil::Manifest
       "cache"     => @cache_url,
       "env"       => json_encode(options[:env] || {}),
       "keepalive" => "1",
-      "manifest"  => self.to_json
+      "manifest"  => self.to_json,
+      "type"      => options[:type]
     })
 
     slug_url = nil
