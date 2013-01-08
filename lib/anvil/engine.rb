@@ -22,7 +22,7 @@ class Anvil::Engine
     buildpack = options[:buildpack] || read_anvil_metadata(source, "buildpack")
 
     build_options = {
-      :buildpack => prepare_buildpack(buildpack),
+      :buildpack => prepare_buildpack(buildpack, options),
       :type      => options[:type] || "tgz"
     }
 
@@ -55,7 +55,7 @@ class Anvil::Engine
     puts Anvil::VERSION
   end
 
-  def self.prepare_buildpack(buildpack)
+  def self.prepare_buildpack(buildpack, options = {})
     buildpack = buildpack.to_s
     if buildpack == ""
       buildpack
@@ -64,7 +64,7 @@ class Anvil::Engine
     elsif buildpack =~ /\A\w+\/\w+\Z/
       "http://codon-buildpacks.s3.amazonaws.com/buildpacks/#{buildpack}.tgz"
     elsif File.exists?(buildpack) && File.directory?(buildpack)
-      manifest = Anvil::Manifest.new(buildpack)
+      manifest = Anvil::Manifest.new(buildpack, :ignore => options[:ignore])
       upload_missing manifest, "buildpack"
       manifest.save
     else
