@@ -42,6 +42,11 @@ You can use this combination to host build scripts in gists. [Example](https://g
       http://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.2/squashfs4.2.tar.gz \
       -b https://gist.github.com/ddollar/a2ceb7b9699f05303170/raw/build-squashfs.sh
 
+#### Use a gist as a buildpack
+
+    # build mercurial
+    $ anvil build http://mercurial.selenic.com/release/mercurial-2.7.1.tar.gz -b https://gist.github.com/ddollar/07d579a6621b3ddd7b6b/raw/gistfile1.txt
+
 #### Use the pipelining feature to build complex deploy workflows
 
 This example requires the [heroku-anvil](https://github.com/ddollar/heroku-anvil) plugin.
