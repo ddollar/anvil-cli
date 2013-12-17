@@ -196,7 +196,7 @@ private
     anvil["/file/#{hash}"].post :data => File.new(filename, "rb")
     hash
   rescue RestClient::Forbidden => ex
-    error "error uploading #{filename}: #{ex.http_body}"
+    raise "error uploading #{filename}: #{ex.http_body}"
   end
 
   def upload_hashes(hashes, &blk)
