@@ -63,10 +63,12 @@ class Anvil::Engine
       buildpack
     elsif buildpack =~ /\A\w+\/\w+\Z/
       "https://s3-external-1.amazonaws.com/codon-buildpacks/buildpacks/#{buildpack}.tgz"
-    elsif File.exists?(buildpack) && File.directory?(buildpack)
+    elsif File.directory?(buildpack)
       manifest = Anvil::Manifest.new(buildpack)
       upload_missing manifest, "buildpack"
       manifest.save
+    elsif File.exists?(buildpack)
+      buildpack
     else
       raise Anvil::Builder::BuildError.new("unrecognized buildpack specification: #{buildpack}")
     end
