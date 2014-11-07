@@ -89,3 +89,7 @@ This example requires the [heroku-anvil](https://github.com/ddollar/heroku-anvil
      -b, --buildpack URL  # use a custom buildpack
      -p, --pipeline       # pipe build output to stderr and only put the slug url on stdout
      -r, --release        # release the slug to an app
+
+## License
+
+MIT
