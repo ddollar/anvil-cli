@@ -158,7 +158,7 @@ private
     manifest = {}
     Find.find(dir) do |path|
       relative = Pathname.new(path).relative_path_from(root).to_s
-      if File.directory?(path)
+      if !File.symlink?(path) && File.directory?(path)
         Find.prune if ignore.include?(relative) || ignore.include?(relative + "/")
         next
       end
